@@ -21,6 +21,8 @@ public:
             res.push_back(arr1[i]);
             res.push_back(arr2[i]);
         }
+        delete[] arr1;
+        delete[] arr2;
         return res;
     }
 };
