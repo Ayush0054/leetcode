@@ -60,3 +60,31 @@ class Solution {
         return true;
     }
 };
+
+//approach two   by converting ll into array 
+class Solution {
+private:
+    bool checkpalindrome(vector<int>arr){
+        int n = arr.size();                  //tc - O(n),sc -O(n) in 1st approach
+        int e = n-1;
+        int s =0;                                     
+        while(s<=e){
+            if(arr[s]!=arr[e]){
+                return 0;
+            }
+            s++;
+            e--;
+        }
+        return 1;
+    }
+    public:
+    bool isPalindrome(ListNode* head) {
+        vector<int> arr;
+        ListNode* temp = head;
+        while(temp!=NULL){
+            arr.push_back(temp->val);
+            temp=temp->next;
+        }
+        return checkpalindrome(arr);
+    }
+};
