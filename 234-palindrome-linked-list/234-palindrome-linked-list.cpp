@@ -11,9 +11,9 @@
 class Solution {
 private:
     bool checkpalindrome(vector<int>arr){
-        int n = arr.size();
+        int n = arr.size();                  //tc - O(n),sc -O(n) in 1st approach
         int e = n-1;
-        int s =0;
+        int s =0;                                     
         while(s<=e){
             if(arr[s]!=arr[e]){
                 return 0;
