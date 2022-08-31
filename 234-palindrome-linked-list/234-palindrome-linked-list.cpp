@@ -9,7 +9,7 @@
  * };
  */
 class Solution {
-    private:
+    private:                            //tc->O(n) sc->O(1)
     ListNode* getmid(ListNode* head){
         ListNode* slow = head;
         ListNode* fast = head -> next;
