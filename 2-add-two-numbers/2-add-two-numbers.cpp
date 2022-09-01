@@ -11,11 +11,11 @@
 class Solution {
     private:
     ListNode* reverse(ListNode* head){
-        ListNode* curr = head;
+        ListNode* curr = head;         
         ListNode* prev = NULL;
         ListNode* next = NULL;
         while(curr!=NULL){
-            next = curr -> next;
+            next = curr -> next;                       //tc->O(N+M) sc->O(Max(N,M))
             curr-> next = prev;
             prev = curr ;
             curr = next;
