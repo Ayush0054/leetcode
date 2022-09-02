@@ -24,12 +24,12 @@ class Solution {
               return;
           }
           else{
-              tail->next = temp;
+              tail->next = temp;                                                
               tail = temp;
           }
       }
 public:
-    Node* copyRandomList(Node* head) {
+    Node* copyRandomList(Node* head) {                                //tc-> O(n) and sc-> O(1)
         Node* clonehead = NULL;
         Node* clonetail = NULL;
         
@@ -39,22 +39,39 @@ public:
             insertattail(clonehead,clonetail,temp->val);
             temp = temp -> next;
         }
-    //create a map and copy original random pointers to clone
-      unordered_map<Node*,Node*> oldtoNewNode;
+        
       Node* original = head;
       Node* clone =clonehead;
       
      while(original!=NULL && clone!=NULL){
-         oldtoNewNode[original]= clone;
-         original = original -> next;
-         clone = clone -> next;
+            Node* next = original -> next;
+         original-> next = clone;
+         original = next;
+         
+         next = clone -> next; 
+         clone -> next=original;
+        clone = next;
      }
+        
+     temp=head;
+        while(temp!=NULL){
+          if(temp->next!=NULL){
+        temp -> next -> random = temp ->random ? temp -> random -> next : temp->random;      
+          }
+         temp = temp -> next  -> next;   
+            }
+        
+   
+        
      original = head;
      clone = clonehead;
-     
-     while(original!=NULL){
-      clone -> random = oldtoNewNode[original-> random];
-         original = original -> next;
+     while(original!=NULL && clone!=NULL){
+     original -> next = clone -> next; 
+        original = original -> next;
+         
+         if(original!=NULL){
+         clone -> next = original -> next;
+         }
          clone = clone -> next;
      }
      return clonehead;
