@@ -55,10 +55,8 @@ class Solution {
     while (second_last->next->next != NULL)
         second_last = second_last->next;
  
-    // Delete last node
     delete (second_last->next);
  
-    // Change next of second last
     second_last->next = NULL;
  
     return head;
@@ -87,10 +85,29 @@ public:
         if(temp-> next!=NULL){
         temp -> next = Next -> next;
         }
-        //Next -> next = NULL;
         delete Next;
 
         head =reversell(head);
         return head;
+        
+        // approah two
+//         ListNode* fast = head;
+//         ListNode* slow = head;
+//         for(int i = 0; i<n; i++){
+//             fast = fast->next;
+//         }
+//         if(!fast){
+//             return head->next;
+//         }
+//         while(fast->next){
+//             fast = fast->next;
+//             slow = slow->next;
+//         }
+        
+//         ListNode* todel = slow->next;
+//         slow->next = slow->next->next;
+//         delete todel;
+        
+//         return head;
     }
 };
