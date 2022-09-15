@@ -29,21 +29,35 @@ class Solution {
     }
 public:
     ListNode* deleteMiddle(ListNode* head) {
-        if(head==NULL||head->next == NULL){
-            return NULL;
-        }
-        if(head->next->next==NULL){
-            head -> next = NULL;
-            return head;
-        }
-         pair<ListNode*,ListNode*> p = middlenode(head);
-        ListNode* prev= p.first;
-        ListNode* middle = p.second;
+//         if(head==NULL||head->next == NULL){
+//             return NULL;
+//         }
+//         if(head->next->next==NULL){
+//             head -> next = NULL;
+//             return head;
+//         }
+//          pair<ListNode*,ListNode*> p = middlenode(head);
+//         ListNode* prev= p.first;
+//         ListNode* middle = p.second;
         
-        prev -> next = middle -> next;
-        middle -> next = NULL;
-        delete middle;
+//         prev -> next = middle -> next;
+//         middle -> next = NULL;
+//         delete middle;
         
-        return head;
+//         return head;
+        
+          if(head->next==NULL)
+        return NULL;
+      
+      ListNode *slow=new ListNode(0,head);
+      ListNode *fast=head;
+      
+      while(fast!=NULL && fast->next!=NULL)
+      {
+        slow=slow->next;
+        fast=fast->next->next;
+      }
+      slow->next=slow->next->next;
+      return head;
     }
 };
