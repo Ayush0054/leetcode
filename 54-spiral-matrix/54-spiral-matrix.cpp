@@ -22,7 +22,7 @@ public:
                 ans.push_back(matrix[strtrow][i]);
                 count++;
             }
-            strtrow++;
+            strtrow++;                            //strtrow -> 1
             
               //print ending column
             for(int i = strtrow ; count<total && i<=endrow; i++){
@@ -30,7 +30,7 @@ public:
                 ans.push_back(matrix[i][endcol]);
                 count++;
             }
-            endcol--;
+            endcol--;                            //endcol ->1
             
              //print ending row
             for(int i = endcol ; count<total && i>=strtcol; i--){
@@ -38,7 +38,7 @@ public:
                 ans.push_back(matrix[endrow][i]);
                 count++;
             }
-            endrow--;
+            endrow--;                               //endrow ->1
             
             //print starting column
             for(int i = endrow; count<total && i>=strtrow; i--){
@@ -46,10 +46,19 @@ public:
                 ans.push_back(matrix[i][strtcol]);
                 count++;
             }
-            strtcol++;
+            strtcol++;                                  //strtcol->1
             
             
         }
         return ans;
     }
 };
+// some explanation
+
+// j           j             j 
+
+// i     0,0       0,1       0,2
+
+// i     1,0       1,1      1,2
+
+// i     2,0       2,1       2,2
