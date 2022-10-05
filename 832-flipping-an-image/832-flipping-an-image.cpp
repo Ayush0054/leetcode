@@ -12,3 +12,4 @@ public:
         return image;
     }
 };
+//reverse kar aur fir xor laga de
