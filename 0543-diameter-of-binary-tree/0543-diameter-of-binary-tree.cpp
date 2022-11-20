@@ -13,8 +13,8 @@ class Solution {
     public:
          pair<int,int> diameterfast(TreeNode* root){
              if(root==NULL){
-                 pair<int,int> p = make_pair(0,0);
-                 return p;
+                 // pair<int,int> p = make_pair(0,0);
+                 return {0,0};
              }
              pair<int,int>left =  diameterfast( root->left);
              pair<int,int>right =  diameterfast( root->right);
