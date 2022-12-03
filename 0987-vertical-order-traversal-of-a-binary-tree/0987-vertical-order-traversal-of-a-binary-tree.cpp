@@ -33,15 +33,17 @@ public:
 //                q.push(make_pair(hd-1 ,frontnode->left));
 //             }
 //             if(frontnode->right){
-//                 q.push(make_pair(hd-1 ,frontnode->right));
+//                 q.push(make_pair(hd+1 ,frontnode->right));
 //             }
 //         }
          map<int, map<int,vector<int> > > nodes;
         queue< pair<TreeNode*, pair<int,int> > > q;
         vector<vector<int>> res;
         
-        if(root == NULL)
+        if(root == NULL){
             return res;
+            
+        }
             
         q.push(make_pair(root, make_pair(0,0)));
         
@@ -62,14 +64,14 @@ public:
         }
 
               
-    //     for(auto i:nodes){
-    //     vector<int>ans;
-    //         sort(i.second.begin(), i.second.end());
-    //     for(auto j:i.second){
-    //             ans.push_back(j);
-    //     }
-    //     res.push_back(ans);
-    // }
+//         for(auto i:nodes){
+//         vector<int>ans;
+//             sort(i.second.begin(), i.second.end());
+//         for(auto j:i.second){
+//                 ans.push_back(j);
+//         }
+//         res.push_back(ans);
+//     }
              for(auto i:nodes){
         vector<int>ans;
         for(auto j:i.second){
