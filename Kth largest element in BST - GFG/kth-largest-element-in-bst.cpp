@@ -109,8 +109,7 @@ class Solution
     {
          vector<int> res;
         trav(root,K,res);
-        // reverse(res.begin(),res.end())
-        // K=res.size()-k;
+
          int ans=res[K-1];
          return ans;
     }
